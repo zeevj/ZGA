@@ -1,0 +1,353 @@
+<html>
+	<head>
+
+        <script src="jquery.js"></script>
+        <script src="jQuery.tubeplayer.min.js"></script>
+
+        <title>Zap Guitar</title>
+		<meta charset="UTF-8">
+		<title>Untitled Document</title>
+		<link href="./style.css" rel="stylesheet" type="text/css">
+		<style type="text/css">
+		</style>
+		<script>
+        var isAnalytics = true;
+		function pressedSongsButton(){
+			//alert("hii");
+			window.location.href="command?action=toggleSongsScreen&attrib=1";
+		}
+            
+        function changeVideo(_num){
+            //GANT T&T page: selected category 1
+            if(isAnalytics){
+                window.location.href='command?GANTevent=TipsAndTricks,select tab,'+_num;
+            }
+
+            var noInfoYoutube = "?HD=1;rel=0;showinfo=0;enablejsapi=1";
+            var link;
+            if (_num ==1 ){
+                link = "http://54.235.156.79/zapguitar/youtube/video1.html";
+            }else{
+                link = "http://54.235.156.79/zapguitar/youtube/video2.html";
+            }
+            
+            $("#player").attr("src", link + noInfoYoutube);
+
+            //tips text selector
+            $(".tips").addClass("hideTips");
+            var openTips = "#tipsTricksText" + _num;
+            $(openTips).removeClass("hideTips");
+
+            //video#Button highlight
+            var selectedTTTab;
+            for (var i=1; i<=2; i++){
+                selectedTTTab = "#video" + i +"Button" ;
+                $(selectedTTTab).removeClass("checkedTab");
+            }
+            //alert(selectedTTTab);
+            selectedTTTab = "#video" + _num +"Button"
+            setTimeout(function(){
+                $(selectedTTTab).addClass("checkedTab");
+            },10); 
+            
+        }
+
+
+		function closeTipsWindow(){
+			//tipsAndTricksWindow
+           // var myTextField = document.getElementById('tipsAndTricksWindow');
+            //document.getElementById('tipsAndTricksWindow').style.visibility = 'hidden';
+            //document.getElementById('tipsAndTricksWindow').style.left = '1000px';
+            
+            //player = document.getElementById('ytplayer');
+            
+            setTimeout(function(){stopVideo();},100);
+            $('#tipsAndTricksWindow').css('-webkit-transform', 'translate(1024px,0px)').css('opacity','0.0');
+            setTimeout(function(){$("#tipsAndTricksWindow").hide()},1000);
+
+            //GANT T&T page: "Back"
+            if(isAnalytics){
+                window.location.href="command?GANTview=Home Screen";
+            }
+
+		}
+
+        function closeFeedbackWindow(){
+            $('#feedbackScreen').css('-webkit-transform', 'translate(0px,-500px)').css('opacity','0.0');
+            setTimeout(function(){$("#feedbackScreen").hide()},1000);
+
+            //GANT Feedback pop-up close (x)
+            if(isAnalytics){
+                window.location.href="command?GANTevent=Feedback,close,close";
+            }
+        }
+
+        
+        function isStringEmpty(_string) {  
+          if (!_string.match(/\S/)) {
+            return (true);
+          } else {
+           return false;
+          }
+        }
+        
+        function openTipsWindow(){
+            // alert(navigator.onLine);
+            document.getElementById('tipsAndTricksWindow').style.visibility = 'visible';
+            $("#tipsAndTricksWindow").show();
+            setTimeout(function(){
+                $('#tipsAndTricksWindow').css('-webkit-transform', 'translate(0px,0px)').css('opacity','1.0');
+            },0);
+            setTimeout(function(){
+                changeVideo(1);
+            },0);
+
+            //GANT Entered Tips & Tricks page
+            if(isAnalytics){
+                window.location.href="command?GANTcustomVar=6,YES&GANTevent=TipsAndTricks,enter tnt page,enter tnt page&GANTview=TipsAndTricks";
+            }
+
+
+            //setTimeout($('#tipsAndTricksWindow').css('-webkit-transform', 'translate(0px,200px)'), 4000);
+        }
+
+        function openFeedbackWindow(){
+            document.getElementById('feedbackScreen').style.visibility = 'visible';
+            $("#feedbackScreen").show();
+            setTimeout(function(){
+                $('#feedbackScreen').css('-webkit-transform', 'translate(0px,0px)').css('opacity','1.0');
+            },0);
+
+            //GANT Feedback pop-up
+            if(isAnalytics){
+                window.location.href="command?GANTevent=Feedback,popup,popup";
+            }
+            //setTimeout($('#tipsAndTricksWindow').css('-webkit-transform', 'translate(0px,200px)'), 4000);
+        }
+            
+        //stop playback video
+
+
+        
+
+        function scrollScreenToZero(){
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            },0);
+        }
+            
+        window.onload = function (){
+            setTimeout(function(){
+                changeVideo(2);
+            },300); 
+        }
+
+        function facebookLink(){
+            //alert('facebook');
+            //window.location.href="command?openInBrowser=fb://profile/372793639441679";
+
+            //GANT Click on FB link AND go to Facebook
+            if(isAnalytics){
+                window.location.href="command?GANTevent=Facebook link,Facebook link,Facebook link&openInBrowser=fb://profile/372793639441679";
+            }
+        }
+
+		</script>
+	</head>
+
+	<body ontouchstart="">
+	<!-- <img src="songsButton.png" class="butonClass" alt="songs" name="songsButon" width="293" height="200" id="songsButon" onClick="pressedSongsButton()"  /> -->
+    <div class="butonClass" id="songsButon" onClick="pressedSongsButton()"><br>Songs</div>
+    <div class="butonClass" id="tipsButon" onClick="openTipsWindow()"><br>Tips & Tricks</div>
+
+<!-- 	<img src="tipsButton.png" class="butonClass" alt="songs" name="songsButon" width="293" height="200" id="tipsButon" onClick="openTipsWindow()"/>
+ -->    <div id="feedbackButton" class="butonClass" onClick="openFeedbackWindow()">
+        <div style="font-size: 32px; padding-top: 12px;">We hear you!</div>
+        <div style="font-size: 4px; color: transparent;"> -</div>
+        <div> Bugs? Requests?</div>
+        <div>Let us know...</div>
+    </div>
+    <div id="poweredBy">Powered by</div> 
+    <img src="instrumagic_logo1@2x~ipad.png" class="" alt="songs" name="songsButon" width="293" height="200" id="instrumagicLogo" onClick=""/>
+    
+    <div alt="FB" name="facebookLinkButon" width="45" height="45" id="facebookLink" onClick="facebookLink()"></div>
+  
+    <!-- <a id="facebookLink" onclick="facebookLink();">Link</a> -->
+    
+
+	<img src="zapGuitarLogo.png" alt="ZapGuitar" name="zapGuitarLogo" width="461" height="111" id="zapGuitarLogo" />
+    <img src="ZGBlackFret@2x~ipad.png" alt="ZapGuitar" name="zapGuitarLogo" width="146" height="124" id="zapGuitarLogoPick" />
+
+    <div id="tipsAndTricksWindow">
+        <!-- <img src="zapGuitarLogo.png" alt="ZapGuitar" name="zapGuitarLogo" width="461" height="111" id="zapGuitarLogoTips" /> -->
+
+        <div id="tipsTricksExtraLogo" onClick="changeVideo(1)">Tips & Tricks</div>
+        <div id="tipsTricksMainText">
+            Choose a song or add a new one <br> 
+            Edit songs - enter your own lyrics and chords <br> 
+            Have fun playing!
+        </div>
+        <div id="subTipsBackground"></div>
+        <div id="tipsTricksText1" class="tips">
+            Strum the strings and ZAP to the next chord <br> 
+            Shake iPad for vibrato effect  <br> 
+            Tap below the strings to choke the sound <br>
+            ***Turn Multitasking Gestures off! <br> 
+        </div>
+        <div id="tipsTricksText2" class="tips">
+            Add a new song<br>
+            Type in or paste your lyrics & chords<br>
+            Use the chords keyboard<br>
+            You can play while editing<br>
+            Undo not available yet - type carefully...<br>
+            When you’re done, press “Save & Play”<br>
+        </div>
+        <div id="tipsTricksText3" class="tips">
+            -aaa<br> 
+            -aaa  <br> 
+            -ff <br>
+            -ddd 
+        </div>
+        <div id="video1Button" class="butonClass" onClick="changeVideo(1)">How to play</div>
+        <div id="video2Button" class="butonClass" onClick="changeVideo(2)">Add / edit songs</div>
+        <!-- <div id="video3Button" class="butonClass" onClick="changeVideo(3)">Advanced</div> -->
+
+        
+        <div id="closeTipsButton" class="butonClass" onClick="closeTipsWindow()">Back</div>
+
+        <div id="noInternet">Searching for internet</div>
+        <div id="youtubeVideo">
+        <div id="player"></div>
+
+        </div>
+    </div>
+
+    <div id="feedbackScreen">
+        <div id="feedbackScreenPreText">
+            Any feedback is welcome
+        </div>
+        <br>
+        <!-- MAILTO:someone@example.com -->
+        <form method="post" id="feedbackForm" action="">
+            Your name:<br><input id="nameTextArea" type="text" class="textInput" name="name_of_user" placeholder="myname" onFocus="scrollScreenToZero()"><br>
+            Your email:<br><input id="emailTextArea" type="text" class="textInput" name="email_of_user" placeholder="my@email.com" onFocus="scrollScreenToZero()"><br>
+            talk to us<br>
+            <textarea id="commentTextArea" class="textInput" name="free_text" cols="25" rows="4"  placeholder="wassup" onFocus="scrollScreenToZero()"></textarea>
+            <input id="nameTextArea" type="text" class="textInput" name="app_name" value="ZapGuitar" onFocus="scrollScreenToZero()" style="visibility: hidden;"></input>
+            <input id="submitButton" type="submit" value="Send feedback" />
+        </form>
+        <div id="closeFeedbackButton" class="butonClass" onClick="closeFeedbackWindow()">Close</div>
+
+    </div>        
+    <script>
+        // 2. This code loads the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+        
+        // This is a protocol-relative URL as described here:
+        //     http://paulirish.com/2010/the-protocol-relative-url/
+        // If you're testing a local page accessed via a file:/// URL, please set tag.src to
+        //     "https://www.youtube.com/iframe_api" instead.
+        //tag.src = "https://www.youtube.com/iframe_api";
+        tag.src = "iframe_api.html"
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        
+        // 3. This function creates an <iframe> (and YouTube player)
+        //    after the API code downloads.
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                                   height: '300',
+                                   width: '530',
+                                   videoId: 'G3Py8hojFlY',
+                                   events: {
+                                   'onReady': onPlayerReady,
+                                   'onStateChange': onPlayerStateChange
+                                   }
+                                   });
+        }
+        
+        // 4. The API will call this function when the video player is ready.
+        function onPlayerReady(event) {
+            //event.target.playVideo();
+            
+            
+        }
+        
+        // 5. The API calls this function when the player's state changes.
+        //    The function indicates that when playing a video (state=1),
+        //    the player should play for six seconds and then stop.
+        //var done = false;
+        function onPlayerStateChange(event) {
+            //alert('ready');            
+        }
+
+        function stopVideo() {
+            player.stopVideo();
+            changeVideo(1);
+        }
+
+        function msgbox(_msg){
+            var iframe = document.createElement("IFRAME");
+            iframe.setAttribute("src", 'data:text/plain,');
+            document.documentElement.appendChild(iframe);
+            window.frames[1].window.alert(_msg);
+            iframe.parentNode.removeChild(iframe);
+        }
+
+        //check email
+        function validateEmail(email) 
+        {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+
+        $("#feedbackForm").submit(function() {
+
+            // $("#emailTextArea").val();
+            // $("#commentTextArea").val();
+
+            //Send the serialized data to formProcessor.php.
+            
+            if(!validateEmail($("#emailTextArea").val())){
+                msgbox("Please enter your email");
+            }else{
+                $.post("http://instru-magic.com/zg/songfull_feedback.php", $("#feedbackForm").serialize(),
+                    //Take our repsonse, and replace whatever is in the "formResponse"
+                    //div with it.
+                    function(data) {
+                        // $("#feedbackForm").html(data);
+                        msgbox("Thank you");
+                        setTimeout(function(){closeFeedbackWindow();},100); 
+
+                        var feedbackText = "{";
+                        feedbackText += $("#nameTextArea").val();
+                        feedbackText += "}";
+                        var emailFB = $("#emailTextArea").val();
+                        // alert(_name);
+                        if (emailFB!=""){
+                            feedbackText += "{";
+                            feedbackText += $("#emailTextArea").val();
+                            feedbackText += "}";
+                        }
+                        feedbackText += "{";
+                        feedbackText += $("#commentTextArea").val();
+                        feedbackText += "}";
+
+                        //alert(feedbackText);
+                        //GANT T&T page: selected category 1
+                        if(isAnalytics){
+                            window.location.href='command?GANTevent=Feedback,send,'+feedbackText;
+                        }
+                    }           
+                )
+                .error(function() { 
+                   msgbox("I was not able to send your feedback"); 
+                });
+            }  
+            return false;
+        });   
+
+        </script>
+	</body>
+</html>

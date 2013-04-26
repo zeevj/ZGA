@@ -1,0 +1,359 @@
+@charset "UTF-8";
+
+/* CSS Document */
+* {
+   -webkit-touch-callout: none;
+   -webkit-user-select: none; /* Disable selection/Copy of UIWebView */
+}
+	
+@font-face
+        {
+        font-family: Mouse Memoirs;
+        src: url(MouseMemoirs-Regular.ttf) ;
+        }
+
+#zapGuitarLogo {
+	position: absolute;
+	left: 462px;
+	top: 14px;
+}
+
+body {
+	background-image: url(writerSiteBG.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+#songsButon{
+	position: absolute;
+	left: 63px;
+	top: 203px;
+	width: 220px;
+	height: 138px;
+	background-color: rgb(227,70,61);
+	-webkit-border-radius: 10;
+	text-align: center;
+	color: rgba(255,255,255,0.8);
+	font-weight: bold;
+	font-family: Helvetica;
+	font-size: 38px;
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+#instrumagicLogo{
+	position: absolute;
+	left: 108px;
+	top: 725px;
+	width: 124px;
+	height: auto;	
+}
+
+#poweredBy{
+	position: absolute;
+	left: 12px;
+	top: 728px;
+	width: 124px;
+	height: auto;
+	color: rgba(255,255,255,0.5);
+	font-weight: bold;
+	font-family: Helvetica;
+}
+
+.butonClass:active {
+	margin-top: 2px;
+	
+}
+
+#youtubeVideo{
+    position:absolute;
+	left: 30px;
+	top: 350px;
+	z-index: 100;
+}
+
+
+#tipsButon{
+	position: absolute;
+	left: 64px;
+	top: 388px;
+	width: 220px;
+	height: 130px;
+	background-color: rgb(227,70,61);
+	-webkit-border-radius: 10;
+	text-align: center;
+	color: rgba(255,255,255,0.8);
+	font-weight: bold;
+	font-family: Helvetica;
+	font-size: 31px;
+	padding-top: 14px;
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);	
+}
+
+
+#video1Button{
+	position: absolute;
+	left: 30px;
+	top: 255px;
+	width: 110px;
+	height: 50px;
+	background-color: rgb(230, 215, 215);
+	text-align: center;
+	padding-top: 10;
+	-webkit-border-radius: 5;
+	font-family: Mouse Memoirs;
+	font-size: 22;
+	color: rgb(107, 67, 67);
+}
+
+/*.showTips{
+	visibility: visible;
+}*/
+.hideTips{
+	visibility: hidden;
+}
+
+#video2Button{
+	position: absolute;
+	left: 155px;
+	top: 255px;
+	width: 110px;
+	height: 50px;
+	background-color: rgb(230, 215, 215);
+	text-align: center;
+	padding-top: 10;
+	-webkit-border-radius: 5;
+	font-family: Mouse Memoirs;
+	font-size: 22;
+	color: rgb(107, 67, 67);
+
+}
+#video3Button{
+	position: absolute;
+	left: 280px;
+	top: 255px;
+	width: 110px;
+	height: 50px;
+	background-color: rgb(230, 215, 215);
+	text-align: center;
+	padding-top: 10;
+	-webkit-border-radius: 5;
+	font-family: Mouse Memoirs;
+	font-size: 22;
+	color: rgb(107, 67, 67);
+}
+
+#noInternet{
+	position: absolute;
+	left: 30px;
+	top: 350px;
+	width: 530;
+	height: 180;
+	background-color: rgb(10, 10, 10);
+	color: rgb(200, 200, 200);
+	z-index: 99;
+	text-align: center;
+	padding-top: 120;
+	font-family: Mouse Memoirs;
+	font-size: 22;
+}
+
+#subTipsBackground{
+	position: absolute;
+	left: 10px;
+	top: 300px;
+	width: 1000;
+	height: 380px;
+	background-color: rgb(188, 188, 185);
+	color: rgb(200, 200, 200);
+	z-index: 1;	
+	-webkit-border-radius: 10;
+}
+
+#closeTipsButton{
+	position: absolute;
+	left: 0px;
+	top: 700px;
+	width: 94px;
+	height: 35px;
+	background-color: rgb(133, 119, 110);
+	text-align: center;
+	padding-top: 12;
+	color: rgb(255,255,255);
+	font-weight: bold;
+	font-family: Helvetica;
+	font-size: 19;
+	z-index: 101;
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+#tipsAndTricksWindow{
+	-webkit-transform: translate(1024px,0px);
+	-webkit-transition: all 0.8s ease-out;
+    position: absolute;
+    left: 0;
+    background-color: rgb(179,179,100);
+    opacity:0.0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    visibility: hidden;
+    z-index: 100;
+}
+
+#tipsTricksMainText{
+	position: absolute;
+	left: 25px;
+	top: 90px;
+	font-family: Mouse Memoirs;
+	font-size: 30;
+}
+
+#tipsTricksText1{
+/*	position: absolute;
+	left: 575px;
+	top: 343px;
+	font-family: Mouse Memoirs;
+	font-size: 30;
+	z-index: 10;*/
+}
+
+.tips{
+	position: absolute;
+	left: 575px;
+	top: 343px;
+	font-family: Mouse Memoirs;
+	font-size: 30;
+	z-index: 10;
+}
+
+#tipsTricksExtraLogo{
+	position: absolute;
+	left: 436px;
+	top: 16px;
+	font-family: Mouse Memoirs;
+	font-size: 53;
+}
+
+#player{
+    z-index: 10;
+}
+
+#zapGuitarLogoTips {
+	position: absolute;
+	left: 295px;
+	top: 5px;
+	width: 336px;
+	height: auto;	
+}
+
+#zapGuitarLogoPick{
+	position: absolute;
+	left: 400px;
+	top: 50px;
+	width: 66px;
+	height: auto;	
+}
+
+#feedbackButton{
+	position: absolute;
+	left: 684px;
+	top: 597px;
+	width: 194px;
+	height: 127px;
+	background-color: rgb(200,200,100);
+	padding: 10px;
+	-webkit-border-radius: 5;
+	font-family: Mouse Memoirs;
+	font-size: 26;
+	padding-left: 11;
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	text-align: center;
+}
+
+#feedbackScreen{
+	-webkit-transform: translate(0px,-500px);
+	-webkit-transition: all 0.8s ease-out;
+	position: absolute;
+	left: 490px;
+	top: 10px;
+	width: 450px;
+	height: 340px;
+	background-color: rgb(200,200,100);	
+	padding: 10px;
+	-webkit-border-radius: 10;
+	font-family: Mouse Memoirs;
+	font-size: 20;
+}
+
+#commentTextArea{
+	
+	width: 427px;
+	font-family: Mouse Memoirs;
+	font-size: 20;
+	color: black;
+	z-index: 100;
+}
+
+#nameTextArea{
+	font-family: Mouse Memoirs;
+	font-size: 20;
+}
+
+#emailTextArea{
+	font-family: Mouse Memoirs;
+	font-size: 20;
+}
+
+.textInput{
+	-webkit-user-select:text; 
+}
+
+#closeFeedbackButton{
+	position: absolute;
+	left: 407px;
+	top: 10px;
+	width: 44px;
+	height: 32px;
+	background-color: rgb(255, 255, 255);
+	padding: 4px;
+	-webkit-border-radius: 5;
+	font-family: Mouse Memoirs;
+	font-size: 20;
+	text-align: center;
+	padding-top: 11;
+}
+
+#submitButton{
+	font-family: Mouse Memoirs;
+	font-size: 20;
+	position: absolute;
+	top: 308px;
+	left: 8px;
+	padding: 6px;
+	background-color: orange;
+}
+
+#facebookLink{
+	position: absolute;
+	left: 242px;
+	top: 715px;
+	width: 35px;
+	height: 35px;
+	z-index: 100;
+
+	background-image: url('Xmas_FBshare2_down@2x~ipad.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.checkedTab{
+	border: solid;
+	color: rgb(107, 67, 67);
+	border-width: 3px;
+}
+
+
+
+
