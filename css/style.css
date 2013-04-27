@@ -9,7 +9,7 @@
 @font-face
         {
         font-family: Mouse Memoirs;
-        src: url(MouseMemoirs-Regular.ttf) ;
+        src: url(../MouseMemoirs-Regular.ttf) ;
         }
 
 #zapGuitarLogo {
@@ -19,7 +19,7 @@
 }
 
 body {
-	background-image: url(writerSiteBG.jpg);
+	background-image: url(../img/writerSiteBG.jpg);
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
@@ -343,7 +343,7 @@ body {
 	height: 35px;
 	z-index: 100;
 
-	background-image: url('Xmas_FBshare2_down@2x~ipad.png');
+	background-image: url('../img/Xmas_FBshare2_down@2x~ipad.png');
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
